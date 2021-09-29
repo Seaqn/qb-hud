@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+#main-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Money */
+#money-container {
+  position: absolute;
+  right: 2.5vw;
+  top: 2.5vh;
+  font-size: 29px;
+  font-family: 'Oswald', sans-serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#money {
+  text-align: right;
+  color: #ffffff;
+}
+
+#money-minus {
+  text-align: right;
+  color: #ffffff;
+}
+
+#cash {
+  color: #1eff00;
+}
+
+#bank {
+  color: #1eff00;
+}
+
+#plus {
+  color: #1eff00;
+}
+
+#minus {
+  color: #ffffff;
+}
+
+/* Player HUD */
+
+#playerhud {
+  display: flex;
+  position: absolute;
+  bottom: 0.55vw;
+  left: 0.95vh;
+}
+
+.fa-microphone {
+  right: 0.01vw;
+  bottom: -0.01vw;
+}
+
+.fa-heart {
+  right: 0.01vw;
+  bottom: -0.05vw;
+}
+
+.fa-shield-alt {
+  bottom: -0.05vw;
+}
+
+.fa-cheeseburger {
+  right: 0.01vw;
+  bottom: -0.001vw;
+}
+
+.fa-tint {
+  right: 0.01vw;
+  bottom: -0.01vw;
+}
+
+.fa-bolt {
+  right: -0.018vw;
+  bottom: -0.05vw;
+}
+
+/* Vehicle HUD */
+
+.ui-car-fuel,
+.ui-car-nos,
+.ui-car-seatbelt,
+.ui-car-cruise,
+.ui-car-speed,
+.ui-car-street {
+  position: absolute;
+}
+
+.ui-car-speed {
+  bottom: 4.9vh;
+  left: 15.0vw;
+}
+
+.ui-car-fuel {
+  left: 21.65vw;
+  bottom: 2.7vw;
+}
+
+.ui-car-nos {
+  left: 23.4vw;
+  bottom: 2.7vw;
+}
+
+.ui-car-seatbelt {
+  left: 18.25vw;
+  bottom: 2.7vw;
+}
+
+.ui-car-cruise {
+  left: 19.95vw;
+  bottom: 2.7vw;
+}
+
+.fa-gas-pump {
+  left: 0.045vw;
+  bottom: -0.02vw;
+}
+
+.fa-burn {
+  left: -0.025vw;
+  bottom: -0.018vw;
+}
+
+.fa-eye-dropper {
+  left: -0.025vw;
+  bottom: -0.02vw;
+}
+
+.fa-pause {
+  left: 0.02vw;
+  bottom: -0.02vw;
+}
+
+.ui-car-street {
+  font-size: 15px;
+  text-transform: uppercase;
+  bottom: 0.5vh;
+  left: 16.3vw;
+  font-family: 'Oswald', sans-serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: #ededed;
+}
+
+/* Animation */
+.slide-fade-enter-active {
+  transition: all 1.0s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 1.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+/* Custom Colours */
+
+/* Background */
+.text-bg-20 {
+  color: #3a3836;
+}
+.bg-bg-20 {
+  background: #3a3836;
+}
+
+/* Voice */
+.text-grey-20 {
+  color: #9e9e9ea3;
+}
+.bg-grey-20 {
+  background: #9e9e9ea3;
+}
+
+/* Health */
+.text-green-20 {
+  color: #a5d6a7a3;
+}
+.bg-green-20 {
+  background: #a5d6a7a3;
+}
+
+/* Armor */
+.text-armor-20 {
+  color: #1976d2a3;
+}
+.bg-armor-20 {
+  background: #1976d2a3;
+}
+
+/* Hunger */
+.text-orange-20 {
+  color: #ff5722a3;
+}
+.bg-orange-20 {
+  background: #ff5722a3;
+}
+
+/* Thirst */
+.text-blue-20 {
+  color: #2196f3a3;
+}
+.bg-blue-20 {
+  background: #2196f3a3;
+}
+
+/* Stress Line */
+.text-stress-20 {
+  color: #ff0000;
+}
+.bg-stress-20 {
+  background: #ff0000;
+}
+
+/* Stress */
+.text-red-20 {
+  color: #ff0000a3;
+}
+.bg-red-20 {
+  background: #ff0000a3;
+}

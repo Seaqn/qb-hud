@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <link href="https://cdn.jsdelivr.net/npm/quasar@2.1.0/dist/quasar.prod.css" rel="stylesheet" type="text/css">
+        <!-- Font Awesome Pro Icons -->
+        <link href="https://kit-pro.fontawesome.com/releases/v5.15.3/css/pro.min.css" rel="stylesheet">
+        <!-- Material Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <!-- Material Design Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.1.95/css/materialdesignicons.min.css">
+        <!-- Ionicons -->
+        <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+        <!-- Eva Icons -->
+        <script src="https://unpkg.com/eva-icons"></script>
+        <!-- Line Awesome Icons -->
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+        <!-- Boostrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <!-- End -->
+        <link href="https://allfont.net/allfont.css?fonts=pricedown" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/quasar@2.1.0/dist/quasar.umd.prod.js" defer></script>
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="money-container">
+                <div id="money-cash">
+                    <transition name="slide-fade">
+                        <p v-if="showCash">&nbsp;<span id="money">{{formatMoney(cash)}}</span></p>
+                    </transition>
+                </div>
+                <div id="money-bank">
+                    <transition name="slide-fade">
+                        <p v-if="showBank">&nbsp;<span id="money">{{formatMoney(bank)}}</span></p>
+                    </transition>
+                </div>
+                <div id="money-change" v-if="showUpdate">
+                    <p v-if="plus" id="money">+&nbsp;<span id="money">{{formatMoney(amount)}}</span></p>
+                    <p v-else-if="minus" id="minus">-&nbsp;<span id="money-minus">{{formatMoney(amount)}}</span></p>
+                </div>
+            </div>
+            <div id="ui-container">
+                <div id="playerHud" v-show="show">
+                    <div v-if="showVoice">
+                        <q-circular-progress class="q-ml-xs" show-value :value="voice" size="45px" :thickness="0.31" :style="{color: talkingColor}" track-color="grey-20" center-color="grey-10" :min="0" :max="5"><q-icon :name="voiceIcon" size="19px" color="white"/>
+                    </div>
+                    <div v-if="showHealth">
+                        <q-circular-progress class="q-ml-xs" show-value :value="health" size="45px" :thickness="0.31" color="green-13" track-color="green-20" center-color="grey-10"><q-icon name="fas fa-heart" size="19px" color="white"/>
+                    </div>
+                    <div v-if="showArmor">
+                        <q-circular-progress class="q-ml-xs" show-value :value="armor" size="45px" :thickness="0.31" color="blue-8" track-color="armor-20" center-color="grey-10"><q-icon name="fas fa-shield-alt" size="19px" color="white"/>
+                    </div>
+                    <div v-if="showHunger">
+                        <q-circular-progress class="q-ml-xs" show-value :value="hunger" size="45px" :thickness="0.31" color="deep-orange-6" track-color="orange-20" center-color="grey-10"><q-icon name="fas fa-cheeseburger" size="19px" color="white"/>
+                    </div>
+                    <div v-if="showThirst">
+                        <q-circular-progress class="q-ml-xs" show-value :value="thirst" size="45px" :thickness="0.31" color="blue-6" track-color="blue-20" center-color="grey-10"><q-icon name="fas fa-tint" size="19px" color="white"/>
+                    </div>
+                    <div v-if="showStress">
+                        <q-circular-progress class="q-ml-xs" show-value :value="stress" size="45px" :thickness="0.31" color="stress-20" track-color="red-20" center-color="grey-10"><q-icon name="fas fa-bolt" size="19px" color="white"/>
+                    </div>
+                </div>
+            </div>
+            <div id="veh-container">
+                <div v-show="show">
+                    <div class="ui-car-seatbelt">
+                        <q-circular-progress show-value :value="seatbelt" size="30px" :thickness="0.14"  color="grey-9" track-color="grey-9" center-color="grey-10" :min="0" :max="1"><q-icon name="fas fa-eye-dropper" size="11px" :style="{color: seatbeltColor}"/>
+                    </div>
+                    <div class="ui-car-cruise">
+                        <q-circular-progress show-value :value="cruise" size="30px" :thickness="0.14"  color="grey-9" track-color="grey-9" center-color="grey-10" :min="0" :max="1"><q-icon name="fas fa-pause" size="11px" :style="{color: cruiseColor}"/>
+                    </div>
+                    <div class="ui-car-speed">
+                        <q-circular-progress show-value :value="speed" class="text-white" size="60px" :thickness="0.19" color="white" track-color="grey-9" center-color="grey-10" :max="250"/>
+                    </div>
+                    <div class="ui-car-fuel">
+                        <q-circular-progress show-value :value="fuel" size="30px" :thickness="0.14" color="yellow-7" track-color="grey-9" center-color="grey-10"><q-icon name="fas fa-gas-pump" size="11px" color="yellow-7"/>
+                    </div>
+                    <div class="ui-car-nos" v-if="showNos">
+                        <q-circular-progress show-value :value="nos" size="30px" :thickness="0.14" color="purple-13" track-color="grey-9" center-color="grey-10"><q-icon name="fas fa-burn" size="12px" color="purple-13"/>
+                    </div>
+                    <div class="ui-car-street">
+                        <p>{{direction}} | {{street1}} | {{street2}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
